@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <title>Ferrari Name Generator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Ferrari Name Generator</h1>
+        <form action="/generate" method="POST">
+            <label for="num1">1. 1～5の間で数字を入力:</label>
+            <input type="number" id="num1" name="num1" min="1" max="5" required>
+
+            <label for="num2">2. 1～10の間で数字を入力:</label>
+            <input type="number" id="num2" name="num2" min="1" max="10" required>
+
+            <label for="num3">3. 249～999の間で数字を入力:</label>
+            <input type="number" id="num3" name="num3" min="249" max="999" required>
+
+            <label for="num4">4. 1～10の間で数字を入力:</label>
+            <input type="number" id="num4" name="num4" min="1" max="10" required>
+
+            <label for="num5">5. 1～5の間で数字を入力:</label>
+            <input type="number" id="num5" name="num5" min="1" max="5" required>
+
+            <button type="submit">生成</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            生成されたFerrariの車種名: {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
